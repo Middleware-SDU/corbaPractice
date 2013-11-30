@@ -1,0 +1,50 @@
+module beans {
+
+    struct Subject {
+        long subjectNo;
+        string subjectName;
+    };
+
+    struct User {
+        long examNo;
+        string userName;
+    };
+
+    struct Grade {
+        User user;
+        Subject subject;
+        long score;
+    };
+
+    typedef sequence<Subject> Subjects;
+    typedef sequence<User> Users;
+    typedef sequence<Grade> Grades;
+
+    interface UserService {
+        void save(in User user);
+        void delete(in long examNo);
+        void update(in User user);
+        User find(in long examNo);
+        Users list();
+    };
+
+    interface GradeService {
+        Grades list();
+        // 得到某个学生的所有科目的成绩
+        Grades getGrades(in long examNo);
+        // 得到某个学生某门课程的成绩
+        long getGrade(in long examNo, in long subjectNo);
+        // 得到某个学生的所有科目的成绩
+        void setGrade(in long examNo, in long subjectNo, in long score);
+//        void setGrade(in User user, in Subject subject, in long score);
+    };
+
+    interface SubjectService {
+        void save(in Subject subject);
+        void delete(in long subjectNo);
+        void update(in Subject subject);
+        User find(in long subjectNo);
+        Subjects list();
+    };
+
+};
