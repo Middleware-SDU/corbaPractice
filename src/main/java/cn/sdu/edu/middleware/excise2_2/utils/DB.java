@@ -13,6 +13,7 @@ public class DB {
         Connection conn = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
+            // TODO : MySQL链接url有待处理
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/corba?user=root&password=root");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -24,7 +25,7 @@ public class DB {
     }
 
     public static PreparedStatement prepare(Connection conn,  String sql) {
-        PreparedStatement pstmt = null; 
+        PreparedStatement pstmt = null;
         try {
             if(conn != null) {
                 pstmt = conn.prepareStatement(sql);
@@ -58,15 +59,6 @@ public class DB {
         }
         return stmt;
     }
-
-    /*
-    public static ResultSet getResultSet(Connection conn, String sql) {
-        Statement stmt = getStatement(conn);
-        ResultSet rs = getResultSet(stmt, sql);
-        close(stmt);
-        return rs;
-    }
-    */
 
     public static ResultSet getResultSet(Statement stmt, String sql) {
         ResultSet rs = null;

@@ -147,14 +147,13 @@ public class CorbaAppTest {
             test.getORBInterface4grade().setGrade(1, 1, 100);
             test.getORBInterface4grade().setGrade(1, 2, 90);
 
-            System.out.println("插入成绩！！");
-
             test.shutdown();
 
             CorbaAppTest test1 = new CorbaAppTest();
             int score4Math = test1.getORBInterface4grade().getGrade(1, 1);
             int score4English = test1.getORBInterface4grade().getGrade(1, 2);
 
+            System.out.println("查询成绩！！");
             System.out.println("yyg1的Math成绩：" + score4Math);
             System.out.println("yyg1的English成绩：" + score4English);
             test1.shutdown();
