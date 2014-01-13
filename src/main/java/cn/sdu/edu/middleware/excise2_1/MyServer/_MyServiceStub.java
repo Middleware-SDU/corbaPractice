@@ -10,7 +10,7 @@ package cn.sdu.edu.middleware.excise2_1.MyServer;
 
 public class _MyServiceStub extends org.omg.CORBA.portable.ObjectImpl implements cn.sdu.edu.middleware.excise2_1.MyServer.MyService
 {
-
+//test
   public void operation1 (String msg)
   {
             org.omg.CORBA.portable.InputStream $in = null;
